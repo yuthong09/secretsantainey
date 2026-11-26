@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- htmlaunch:enhanced:v2 -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22hsl(223%2C72%25%2C58%25)%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22hsl(253%2C72%25%2C44%25)%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2246%22%20text-anchor%3D%22middle%22%20font-family%3D%22ui-sans-serif%2Csystem-ui%2C-apple-system%2CSegoe%20UI%2Csans-serif%22%20font-size%3D%2238%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%3ES%3C%2Ftext%3E%3C%2Fsvg%3E">
+<meta name="theme-color" content="#777b14">
+<meta name="description" content="Secret Santa – Good Gift / Bad Gift | deployed with HTMLaunch">
+<link rel="canonical" href="https://yuthong09.github.io/secretsantainey/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Secret Santa – Good Gift / Bad Gift">
+<meta property="og:title" content="Secret Santa – Good Gift / Bad Gift">
+<meta property="og:description" content="Secret Santa – Good Gift / Bad Gift | deployed with HTMLaunch">
+<meta property="og:url" content="https://yuthong09.github.io/secretsantainey/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fyuthong09.github.io%2Fsecretsantainey%2F?w=1200&h=630">
+<meta property="og:image:alt" content="Secret Santa – Good Gift / Bad Gift">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Secret Santa – Good Gift / Bad Gift">
+<meta name="twitter:description" content="Secret Santa – Good Gift / Bad Gift | deployed with HTMLaunch">
+<meta name="twitter:image" content="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fyuthong09.github.io%2Fsecretsantainey%2F?w=1200&h=630">
+<meta name="twitter:image:alt" content="Secret Santa – Good Gift / Bad Gift">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secret Santa – Good Gift / Bad Gift</title>
+<style>
+  :root{
+    --red:#c8102e; --green:#0f6b3a; --gold:#e8b931; --ink:#1d1d1f; --muted:#666;
+    --bg:#fbf7f2; --card:#fff; --line:#e6ded3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{background:linear-gradient(135deg,var(--red),#8e0b20);color:#fff;padding:28px 20px 22px;text-align:center}
+  header h1{margin:0;font-size:1.9rem;letter-spacing:.3px}
+  header p{margin:6px 0 0;opacity:.9}
+  nav{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;background:#fff;border-bottom:1px solid var(--line);padding:8px;position:sticky;top:0;z-index:5}
+  nav button{border:0;background:none;padding:9px 16px;border-radius:999px;font-weight:600;cursor:pointer;color:var(--muted);font-size:.95rem}
+  nav button.active{background:var(--green);color:#fff}
+  main{max-width:900px;margin:0 auto;padding:22px 16px 60px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+  h2{margin:0 0 12px;font-size:1.3rem;color:var(--green)}
+  h3{margin:18px 0 8px;font-size:1.05rem}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}}
+  .pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.8rem;font-weight:700}
+  .pill.good{background:#e3f4ea;color:var(--green)} .pill.bad{background:#fde7ea;color:var(--red)}
+  ol li,ul li{margin-bottom:6px}
+  label{font-weight:600;font-size:.9rem;display:block;margin-bottom:4px}
+  input,textarea,select{width:100%;padding:9px 11px;border:1px solid #cfc6ba;border-radius:8px;font:inherit;background:#fff}
+  textarea{resize:vertical;min-height:44px}
+  .btn{border:0;border-radius:9px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:.95rem}
+  .btn.primary{background:var(--green);color:#fff}
+  .btn.red{background:var(--red);color:#fff}
+  .btn.ghost{background:#f1ece5;color:var(--ink)}
+  .btn.small{padding:6px 11px;font-size:.82rem}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  table{width:100%;border-collapse:collapse;font-size:.92rem}
+  th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:.8rem;text-transform:uppercase;color:var(--muted);letter-spacing:.4px}
+  .note{background:#fff8e1;border-left:4px solid var(--gold);padding:10px 14px;border-radius:6px;font-size:.92rem;margin:10px 0}
+  .warn{background:#fde7ea;border-left:4px solid var(--red);padding:10px 14px;border-radius:6px;font-size:.92rem;margin:10px 0}
+  .muted{color:var(--muted);font-size:.88rem}
+  .hidden{display:none!important}
+  /* Reveal */
+  .reveal-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:640px){.reveal-wrap{grid-template-columns:1fr}}
+  .gift{border-radius:16px;padding:22px;min-height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;border:2px dashed;transition:transform .15s}
+  .gift:hover{transform:translateY(-2px)}
+  .gift.good{border-color:var(--green);background:#f1faf4}
+  .gift.bad{border-color:var(--red);background:#fff3f5}
+  .gift .emoji{font-size:3rem}
+  .gift .who{font-size:1.6rem;font-weight:800;margin:6px 0}
+  .gift .wish{white-space:pre-wrap;text-align:left;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;font-size:.92rem;margin-top:8px}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 18px;border-radius:999px;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+  .toast.show{opacity:1}
+  .step-num{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;margin-right:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎅 Secret Santa: Good Gift / Bad Gift</h1>
+  <p id="hdrSub">Draw two names. Give one great gift and one gloriously terrible one.</p>
+</header>
+
+<nav id="nav">
+  <button data-tab="rules" class="active">Rules</button>
+  <button data-tab="mydraw">My Draw</button>
+  <button data-tab="organiser">Organiser</button>
+</nav>
+
+<main>
+
+<!-- ================= RULES ================= -->
+<section id="tab-rules">
+  <div class="card">
+    <h2>How it works</h2>
+    <p>Everyone draws <b>two different people</b>:</p>
+    <div class="grid2">
+      <div>
+        <span class="pill good">🎁 GOOD GIFT</span>
+        <p>Buy something they'll actually love. You'll see their <b>wish list</b> to help you choose.</p>
+        <p class="muted">Budget: <b id="rBudgetGood">RM [TBC]</b></p>
+      </div>
+      <div>
+        <span class="pill bad">💩 BAD GIFT</span>
+        <p>Buy the funniest, most useless, most "why would you do this" gift you can find. Name only – no wish list, just creativity.</p>
+        <p class="muted">Budget: <b id="rBudgetBad">RM [TBC]</b></p>
+      </div>
+    </div>
+    <div class="note">🏆 <b>The best of the worst gift wins a <span id="rReward">RM100</span> voucher!</b> Everyone votes on the day.</div>
+  </div>
+
+  <div class="card">
+    <h2>The rules</h2>
+    <ol>
+      <li>Your good-gift person and bad-gift person are always <b>two different people</b>, and you'll never draw yourself.</li>
+      <li>Everyone gives exactly one good gift and one bad gift, and receives exactly one of each.</li>
+      <li><b>Keep it secret.</b> Don't tell anyone who you drew – not even the organisers (they don't know either).</li>
+      <li>Stick to the budget for each gift.</li>
+      <li>Wrap your gifts and label them clearly: <b>"GOOD – To: [name]"</b> and <b>"BAD – To: [name]"</b>. Don't write your own name.</li>
+      <li>Bad gifts should be funny, not offensive. Nothing unsafe, nothing perishable that'll smell by the exchange, nothing that would embarrass someone in front of the team.</li>
+      <li>The bad gift with the most votes wins the voucher (prize goes to the <b>giver</b> – reveal yourself only if you win 😉).</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Key dates</h2>
+    <table>
+      <tr><th>What</th><th>When</th></tr>
+      <tr><td>Submit your wish list</td><td id="rWishDeadline">[TBC]</td></tr>
+      <tr><td>Draw links sent out</td><td id="rDrawDate">[TBC]</td></tr>
+      <tr><td>Gift exchange</td><td id="rExchange">[TBC]</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ================= MY DRAW ================= -->
+<section id="tab-mydraw" class="hidden">
+  <div class="card" id="codeEntry">
+    <h2>Open your draw</h2>
+    <p>Paste the link or code the organiser sent you.</p>
+    <textarea id="codeInput" rows="3" placeholder="Paste your link or code here"></textarea>
+    <div class="row" style="margin-top:10px"><button class="btn primary" id="openCodeBtn" type="button">Open my draw</button></div>
+    <p id="codeErr" class="warn hidden">That code doesn't look right. Copy the whole link/code again and retry.</p>
+  </div>
+
+  <div id="revealArea" class="hidden">
+    <div class="card" style="text-align:center">
+      <h2 id="revealHello">Hi!</h2>
+      <p>Make sure no one is looking at your screen 👀 then tap each box.</p>
+    </div>
+    <div class="reveal-wrap">
+      <div class="gift good" id="giftGood" tabindex="0" role="button">
+        <div class="emoji">🎁</div>
+        <div><span class="pill good">GOOD GIFT</span></div>
+        <p class="muted">Tap to reveal</p>
+      </div>
+      <div class="gift bad" id="giftBad" tabindex="0" role="button">
+        <div class="emoji">💩</div>
+        <div><span class="pill bad">BAD GIFT</span></div>
+        <p class="muted">Tap to reveal</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <p class="muted" style="margin:0">Good gift budget: <b id="vBudgetGood"></b> · Bad gift budget: <b id="vBudgetBad"></b> · Exchange: <b id="vExchange"></b></p>
+      <p class="muted" style="margin:6px 0 0">Bookmark this page or keep the message so you can check again later.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ORGANISER ================= -->
+<section id="tab-organiser" class="hidden">
+
+  <div class="card">
+    <h2><span class="step-num">1</span>Event details</h2>
+    <div class="grid2">
+      <div><label for="sEvent">Event name</label><input id="sEvent" placeholder="e.g. M&A Secret Santa 2026"></div>
+      <div><label for="sExchange">Gift exchange date</label><input id="sExchange" placeholder="e.g. Wed, 9 Dec 2026"></div>
+      <div><label for="sGood">Good gift budget</label><input id="sGood" placeholder="e.g. RM50"></div>
+      <div><label for="sBad">Bad gift budget</label><input id="sBad" placeholder="e.g. RM20"></div>
+      <div><label for="sWish">Wish list deadline</label><input id="sWish" placeholder="e.g. Wed, 2 Dec 2026"></div>
+      <div><label for="sDraw">Draw date</label><input id="sDraw" placeholder="e.g. Thu, 3 Dec 2026"></div>
+      <div><label for="sReward">Bad gift reward</label><input id="sReward" value="RM100 voucher"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="step-num">2</span>Participants &amp; wish lists</h2>
+    <p class="muted">Add yourself too. Wish lists are only shown to whoever draws that person as their <b>good gift</b>.</p>
+
+    <details style="margin-bottom:12px">
+      <summary style="cursor:pointer;font-weight:600">Bulk paste from Excel / Forms export</summary>
+      <p class="muted">Copy two columns (Name, Wish list) from Excel and paste below. One person per row. You can also type <code>Name | wish list</code>.</p>
+      <textarea id="bulkInput" rows="5" placeholder="Alice	Candles, Uniqlo socks, matcha&#10;Ben | Lego, coffee beans"></textarea>
+      <div class="row" style="margin-top:8px"><button class="btn ghost small" id="bulkBtn" type="button">Add these people</button></div>
+    </details>
+
+    <table>
+      <thead><tr><th style="width:32%">Name</th><th>Wish list</th><th style="width:40px"></th></tr></thead>
+      <tbody id="pBody"></tbody>
+    </table>
+    <div class="row" style="margin-top:10px">
+      <button class="btn ghost small" id="addRowBtn" type="button">+ Add person</button>
+      <span class="muted" id="pCount"></span>
+    </div>
+
+    <h3>Who's the organiser (you)?</h3>
+    <select id="sOrganiser"></select>
+    <p class="muted">Used only to give you your own "Reveal my draw" button.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="step-num">3</span>Draw names</h2>
+    <p>The computer does the draw. <b>You won't see who got who</b> – you only get a private link for each person to send them.</p>
+    <div class="row">
+      <button class="btn red" id="drawBtn" type="button">🎲 Draw names</button>
+      <button class="btn ghost small" id="resetBtn" type="button">Reset draw</button>
+    </div>
+    <p id="drawErr" class="warn hidden"></p>
+    <p id="fileWarn" class="note hidden">You're running this file from your computer, so the links will only work on <b>this</b> computer. Either host the page online first (see instructions), or send people their <b>code</b> + this file and ask them to paste it in "My Draw".</p>
+  </div>
+
+  <div class="card hidden" id="resultsCard">
+    <h2><span class="step-num">4</span>Send everyone their private link</h2>
+    <p class="muted">Draw ID: <b id="drawId"></b> · Drawn on <span id="drawTime"></span></p>
+    <div class="warn">🤫 Don't open anyone else's link – it will show their draw. Only use "Reveal my draw" for yourself.</div>
+    <table>
+      <thead><tr><th>Person</th><th>Send to them</th></tr></thead>
+      <tbody id="rBody"></tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  const KEY = "xmas-good-bad-2026";
+  const STORE = "ssgb_state_v1";
+  const $ = id => document.getElementById(id);
+
+  /* ---------- encoding (obfuscates so organiser can't read links by eye) ---------- */
+  function enc(obj){
+    const bytes = new TextEncoder().encode(JSON.stringify(obj));
+    const k = new TextEncoder().encode(KEY);
+    let s = "";
+    bytes.forEach((b,i)=>{ s += String.fromCharCode(b ^ k[i % k.length]); });
+    return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+  }
+  function dec(str){
+    str = str.trim();
+    const m = str.match(/#d=([A-Za-z0-9_-]+)/);
+    if (m) str = m[1];
+    str = str.replace(/[^A-Za-z0-9_-]/g,"").replace(/-/g,"+").replace(/_/g,"/");
+    while (str.length % 4) str += "=";
+    const bin = atob(str);
+    const k = new TextEncoder().encode(KEY);
+    const bytes = new Uint8Array(bin.length);
+    for (let i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i) ^ k[i % k.length];
+    const obj = JSON.parse(new TextDecoder().decode(bytes));
+    if (!obj || !obj.n || !obj.g || !obj.b) throw new Error("bad");
+    return obj;
+  }
+
+  /* ---------- state ---------- */
+  let state = { settings:{}, people:[], organiser:"", draw:null };
+  try { const s = JSON.parse(localStorage.getItem(STORE)); if (s) state = Object.assign(state, s); } catch(e){}
+  function save(){ try { localStorage.setItem(STORE, JSON.stringify(state)); } catch(e){} }
+
+  function toast(msg){ const t=$("toast"); t.textContent=msg; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),1800); }
+  function esc(s){ return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+  /* ---------- tabs ---------- */
+  function showTab(name){
+    document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active", b.dataset.tab===name));
+    ["rules","mydraw","organiser"].forEach(t=>$("tab-"+t).classList.toggle("hidden", t!==name));
+    window.scrollTo(0,0);
+  }
+  document.querySelectorAll("#nav button").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+
+  /* ---------- settings ---------- */
+  const fields = {sEvent:"event", sExchange:"exchange", sGood:"good", sBad:"bad", sWish:"wish", sDraw:"draw", sReward:"reward"};
+  Object.entries(fields).forEach(([id,key])=>{
+    if (state.settings[key] !== undefined) $(id).value = state.settings[key];
+    $(id).addEventListener("input",()=>{ state.settings[key] = $(id).value; save(); renderRules(state.settings); });
+  });
+  if (state.settings.exchange === undefined) { $("sExchange").value = "Wed, 9 Dec 2026"; state.settings.exchange = $("sExchange").value; }
+  if (state.settings.reward === undefined) { state.settings.reward = $("sReward").value; }
+
+  function renderRules(s){
+    s = s || {};
+    $("rBudgetGood").textContent = s.good || "RM [TBC]";
+    $("rBudgetBad").textContent = s.bad || "RM [TBC]";
+    $("rReward").textContent = s.reward || "RM100 voucher";
+    $("rWishDeadline").textContent = s.wish || "[TBC]";
+    $("rDrawDate").textContent = s.draw || "[TBC]";
+    $("rExchange").textContent = s.exchange || "[TBC]";
+    if (s.event) $("hdrSub").textContent = s.event + " · Draw two names. One great gift, one gloriously terrible one.";
+  }
+
+  /* ---------- participants ---------- */
+  function renderPeople(){
+    const body = $("pBody"); body.innerHTML = "";
+    state.people.forEach((p,i)=>{
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td><input data-i="${i}" data-k="name" value="${esc(p.name)}" placeholder="Name"></td>
+        <td><textarea data-i="${i}" data-k="wish" rows="1" placeholder="Wish list (optional)">${esc(p.wish)}</textarea></td>
+        <td><button class="btn ghost small" data-del="${i}" type="button" aria-label="Remove">✕</button></td>`;
+      body.appendChild(tr);
+    });
+    body.querySelectorAll("input,textarea").forEach(el=>el.addEventListener("input",()=>{
+      state.people[+el.dataset.i][el.dataset.k] = el.value; save(); renderOrganiserSelect(); updateCount();
+    }));
+    body.querySelectorAll("[data-del]").forEach(b=>b.addEventListener("click",()=>{
+      if (state.draw && !confirm("Names have already been drawn. Removing someone means you must reset and redraw. Continue?")) return;
+      state.people.splice(+b.dataset.del,1); save(); renderPeople();
+    }));
+    renderOrganiserSelect(); updateCount();
+  }
+  function updateCount(){
+    const n = state.people.filter(p=>p.name.trim()).length;
+    $("pCount").textContent = n + " participant" + (n===1?"":"s");
+  }
+  function renderOrganiserSelect(){
+    const sel = $("sOrganiser"); const cur = state.organiser;
+    sel.innerHTML = `<option value="">— select yourself —</option>` +
+      state.people.filter(p=>p.name.trim()).map(p=>`<option ${p.name.trim()===cur?"selected":""}>${esc(p.name.trim())}</option>`).join("");
+  }
+  $("sOrganiser").addEventListener("change",e=>{ state.organiser = e.target.value; save(); renderResults(); });
+  $("addRowBtn").addEventListener("click",()=>{ state.people.push({name:"",wish:""}); save(); renderPeople(); });
+  $("bulkBtn").addEventListener("click",()=>{
+    const lines = $("bulkInput").value.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+    let added = 0;
+    lines.forEach(l=>{
+      let parts = l.includes("\t") ? l.split("\t") : l.split("|");
+      const name = (parts.shift()||"").trim();
+      const wish = parts.join(" ").trim();
+      if (!name || /^name$/i.test(name)) return;
+      const ex = state.people.find(p=>p.name.trim().toLowerCase()===name.toLowerCase());
+      if (ex) { if (wish) ex.wish = wish; } else { state.people.push({name, wish}); added++; }
+    });
+    $("bulkInput").value = ""; save(); renderPeople(); toast(added + " added");
+  });
+
+  /* ---------- draw ---------- */
+  function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+  function derangement(n, avoid){
+    for (let t=0;t<20000;t++){
+      const p = shuffle([...Array(n).keys()]);
+      if (p.every((v,i)=>v!==i && (!avoid || v!==avoid[i]))) return p;
+    }
+    return null;
+  }
+
+  $("drawBtn").addEventListener("click",()=>{
+    const err = $("drawErr"); err.classList.add("hidden");
+    const people = state.people.map(p=>({name:p.name.trim(), wish:(p.wish||"").trim()})).filter(p=>p.name);
+    const names = people.map(p=>p.name.toLowerCase());
+    const dup = names.find((n,i)=>names.indexOf(n)!==i);
+    if (people.length < 3){ err.textContent="You need at least 3 people (good and bad gift must go to two different people)."; err.classList.remove("hidden"); return; }
+    if (dup){ err.textContent="Duplicate name found: \""+dup+"\". Add a surname or initial so every name is unique."; err.classList.remove("hidden"); return; }
+    if (state.draw && !confirm("This will throw away the current draw and create a new one. Anyone who already got a link must get a new one. Continue?")) return;
+    const missing = people.filter(p=>!p.wish).map(p=>p.name);
+    if (missing.length && !confirm("No wish list yet for: " + missing.join(", ") + ".\n\nWish lists are locked into the links at the draw. Draw anyway?")) return;
+
+    const n = people.length;
+    let good=null, bad=null;
+    for (let t=0;t<200 && !bad;t++){ good = derangement(n); bad = good && derangement(n, good); }
+    if (!good || !bad){ err.textContent="Couldn't complete the draw – please try again."; err.classList.remove("hidden"); return; }
+
+    const id = Math.random().toString(36).slice(2,7).toUpperCase();
+    const s = state.settings;
+    const codes = people.map((p,i)=>({
+      name: p.name,
+      code: enc({ n:p.name, g:people[good[i]].name, gw:people[good[i]].wish, b:people[bad[i]].name,
+                  id, ev:s.event||"", gb:s.good||"", bb:s.bad||"", ex:s.exchange||"", rw:s.reward||"" })
+    }));
+    state.draw = { id, time:new Date().toLocaleString(), codes };
+    save(); renderResults(); toast("Names drawn! 🎉");
+    $("resultsCard").scrollIntoView({behavior:"smooth"});
+  });
+
+  $("resetBtn").addEventListener("click",()=>{
+    if (!state.draw) { toast("No draw to reset"); return; }
+    if (!confirm("Delete the current draw? All links already sent will stop matching the new draw.")) return;
+    state.draw = null; save(); renderResults();
+  });
+
+  function baseUrl(){ return location.href.split("#")[0]; }
+  function linkFor(code){ return baseUrl() + "#d=" + code; }
+  function copy(text, msg){
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(()=>toast(msg||"Copied"))
+      .catch(()=>{ const ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta); ta.select(); try{document.execCommand("copy");toast(msg||"Copied");}catch(e){} ta.remove(); });
+  }
+
+  function renderResults(){
+    $("fileWarn").classList.toggle("hidden", location.protocol !== "file:" || !state.draw);
+    if (!state.draw){ $("resultsCard").classList.add("hidden"); return; }
+    $("resultsCard").classList.remove("hidden");
+    $("drawId").textContent = state.draw.id; $("drawTime").textContent = state.draw.time;
+    const body = $("rBody"); body.innerHTML = "";
+    const ev = state.settings.event || "Secret Santa";
+    state.draw.codes.forEach((c,i)=>{
+      const isMe = state.organiser && c.name === state.organiser;
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td><b>${esc(c.name)}</b>${isMe?' <span class="pill good">YOU</span>':''}</td>
+        <td><div class="row">
+          <button class="btn primary small" data-a="msg" data-i="${i}" type="button">Copy message</button>
+          <button class="btn ghost small" data-a="link" data-i="${i}" type="button">Copy link</button>
+          <button class="btn ghost small" data-a="code" data-i="${i}" type="button">Copy code</button>
+          ${isMe?`<button class="btn red small" data-a="me" data-i="${i}" type="button">Reveal my draw</button>`:''}
+        </div></td>`;
+      body.appendChild(tr);
+    });
+    body.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+      const c = state.draw.codes[+b.dataset.i];
+      if (b.dataset.a==="link") copy(linkFor(c.code), "Link copied for " + c.name);
+      if (b.dataset.a==="code") copy(c.code, "Code copied for " + c.name);
+      if (b.dataset.a==="msg") copy(`Hi ${c.name}! 🎅 Your ${ev} draw is ready.\n\nOpen this privately (don't share it!):\n${linkFor(c.code)}\n\nYou've drawn one GOOD gift 🎁 and one BAD gift 💩. Rules are on the page.`, "Message copied for " + c.name);
+      if (b.dataset.a==="me") { openDraw(c.code); }
+    }));
+  }
+
+  /* ---------- reveal ---------- */
+  let current = null;
+  function openDraw(code){
+    let d;
+    try { d = dec(code); } catch(e){ $("codeErr").classList.remove("hidden"); showTab("mydraw"); return; }
+    current = d;
+    $("codeErr").classList.add("hidden");
+    $("codeEntry").classList.add("hidden");
+    $("revealArea").classList.remove("hidden");
+    $("revealHello").textContent = "Hi " + d.n + "! 🎄";
+    $("vBudgetGood").textContent = d.gb || "TBC";
+    $("vBudgetBad").textContent = d.bb || "TBC";
+    $("vExchange").textContent = d.ex || "TBC";
+    renderRules({ event:d.ev, good:d.gb, bad:d.bb, exchange:d.ex, reward:d.rw, wish:state.settings.wish, draw:state.settings.draw });
+    resetGift("giftGood","🎁","good","GOOD GIFT");
+    resetGift("giftBad","💩","bad","BAD GIFT");
+    showTab("mydraw");
+  }
+  function resetGift(id, emoji, cls, label){
+    $(id).dataset.open = "";
+    $(id).innerHTML = `<div class="emoji">${emoji}</div><div><span class="pill ${cls}">${label}</span></div><p class="muted">Tap to reveal</p>`;
+  }
+  function reveal(which){
+    if (!current) return;
+    const el = which==="good" ? $("giftGood") : $("giftBad");
+    if (el.dataset.open) return;
+    el.dataset.open = "1";
+    if (which==="good"){
+      el.innerHTML = `<div><span class="pill good">GOOD GIFT</span></div><div class="emoji">🎁</div>
+        <div class="muted">You're buying a great gift for</div><div class="who">${esc(current.g)}</div>
+        <div class="wish"><b>Their wish list:</b>\n${current.gw ? esc(current.gw) : "No wish list given – go with your best guess!"}</div>`;
+    } else {
+      el.innerHTML = `<div><span class="pill bad">BAD GIFT</span></div><div class="emoji">💩</div>
+        <div class="muted">You're buying a gloriously bad gift for</div><div class="who">${esc(current.b)}</div>
+        <div class="muted">Make it funny – best worst gift wins ${esc(current.rw || "the voucher")}!</div>`;
+    }
+  }
+  ["giftGood","giftBad"].forEach(id=>{
+    const w = id==="giftGood"?"good":"bad";
+    $(id).addEventListener("click",()=>reveal(w));
+    $(id).addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); reveal(w);} });
+  });
+  $("openCodeBtn").addEventListener("click",()=>{ const v=$("codeInput").value; if(v.trim()) openDraw(v); });
+
+  /* ---------- init ---------- */
+  if (!state.people.length) state.people = [{name:"",wish:""},{name:"",wish:""},{name:"",wish:""}];
+  save(); renderPeople(); renderRules(state.settings); renderResults();
+  const h = location.hash.match(/#d=([A-Za-z0-9_-]+)/);
+  if (h) { document.querySelector('#nav button[data-tab="organiser"]').classList.add("hidden"); openDraw(h[1]); }
+})();
+</script>
+</body>
+</html>
